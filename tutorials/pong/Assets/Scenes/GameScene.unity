@@ -5675,6 +5675,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 9122479399004293870, guid: 8ebb7d7b677baef4c9165badd382a315, type: 3}
+      propertyPath: duration
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ebb7d7b677baef4c9165badd382a315, type: 3}
 --- !u!1001 &384191041
@@ -5928,40 +5932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2f4017c29afcc498bf5488f46f73cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.1
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.2016714
-      value: 0.18262991
-      inSlope: -0.23371105
-      outSlope: -0.23371105
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.34237608
-    - serializedVersion: 3
-      time: 0.9999939
-      value: 0.03125154
-      inSlope: -0.2173906
-      outSlope: -0.2173906
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.36296412
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &524841119
 GameObject:
   m_ObjectHideFlags: 0
@@ -17040,7 +17010,6 @@ GameObject:
   - component: {fileID: 5722203279475374608}
   - component: {fileID: 5722203279475374607}
   - component: {fileID: 1451327863}
-  - component: {fileID: 5722203279475374609}
   - component: {fileID: 5722203279475374610}
   m_Layer: 0
   m_Name: Ball
@@ -17090,20 +17059,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &5722203279475374609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5722203279475374606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11eba2e12d3279443939933f0c883760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashMaterial: {fileID: 2100000, guid: 22d6db462392426418f8907658022eff, type: 2}
-  duration: 0.2
 --- !u!82 &5722203279475374610
 AudioSource:
   m_ObjectHideFlags: 0

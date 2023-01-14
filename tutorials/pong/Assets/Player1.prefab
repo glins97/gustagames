@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2664536356736434178}
   - component: {fileID: 2664536356736434181}
+  - component: {fileID: 2746412004051939999}
+  - component: {fileID: 9122479399004293870}
+  - component: {fileID: 1819603551987355825}
   - component: {fileID: 2664536356736434179}
   - component: {fileID: 2664536356736434176}
   - component: {fileID: 2664536356736434177}
@@ -87,6 +90,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2746412004051939999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664536356736434180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b51390c585c234c9eceb331fd46476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9122479399004293870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664536356736434180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17d5c970480acb48ad79779fb093eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1819603551987355825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664536356736434180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6596a019fede7fa47840fb074897f682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 0}
+  duration: 0
 --- !u!50 &2664536356736434179
 Rigidbody2D:
   serializedVersion: 4
@@ -148,4 +196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer1: 1
   speed: 20
+  maxSpeed: 10
+  dashDistance: 2
+  dashCooldown: 0
   maxY: 4
+  rb: {fileID: 0}
