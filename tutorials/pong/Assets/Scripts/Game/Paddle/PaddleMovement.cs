@@ -61,7 +61,7 @@ public class PaddleMovement : MonoBehaviour
     }
 
     public void FixedUpdate() {
-        float movement = 0f;
+        float yMovementDirection = 0f;
         time += Time.deltaTime;
 
         previousDashKeyIsPressed = dashKeyIsPressed;
@@ -69,15 +69,15 @@ public class PaddleMovement : MonoBehaviour
         // Debug.Log($"{time} {time - lastDashTime} {time - dashReleaseTime}");
 
         if (Input.GetKey(moveUp)) {
-            movement = 1f;
+            yMovementDirection = 1f;
             lastDirection = moveUp;
         }
         else if (Input.GetKey(moveDown)) {
-            movement = -1f;
+            yMovementDirection = -1f;
             lastDirection = moveDown;
         }
         else {
-            movement = 0f;
+            yMovementDirection = 0f;
         }
 
         if (dashConditionsAreMet())
@@ -87,7 +87,7 @@ public class PaddleMovement : MonoBehaviour
         if ((isPlayer1 && Input.GetKey(KeyCode.LeftShift)) || (!isPlayer1 && Input.GetKey(KeyCode.RightShift)))
             tempSpeed = maxSpeed;
 
-        float targetYPosition = rb.position.y + movement * tempSpeed * Time.deltaTime;
+        float targetYPosition = rb.position.y + yMovementDirection * tempSpeed * Time.deltaTime;
         if (targetYPosition > maxY)
             targetYPosition = maxY;
         else if (targetYPosition < -maxY)
