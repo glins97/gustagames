@@ -10,24 +10,21 @@ public class PaddleMovement : MonoBehaviour
     public float speed = 10f;
     public float maxSpeed = 10f;
     public float dashDistance = 2f;
+    public float dashCooldown = 0f;
 
     [SerializeField]
     public float maxY = 3.4f;
 
     public Rigidbody2D rb;
 
-    private KeyCode dashDirection = KeyCode.None;
     private KeyCode moveUp;
     private KeyCode moveDown;
+    private KeyCode lastDirection;
 
     private float time = 0;
-    private float dashPressTime;
-    private float dashReleaseTime;
-
-    // TODO: LERP
-    private float dashDuration = 0.1f;
-    private Vector3 finalPosition;
-    private Vector3 startPosition;  
+    private float lastDashTime;
+    private bool dashKeyIsPressed = false;
+    private bool previousDashKeyIsPressed = false;
 
 
     public void Reset() {
@@ -50,10 +47,8 @@ public class PaddleMovement : MonoBehaviour
         Reset();
     }
 
-    public void resetDashConditions() {
-        dashDirection = KeyCode.None;
-        dashPressTime = 0;
-        dashReleaseTime = 0;
+    public bool dashConditionsAreMet() {
+        return (dashKeyIsPressed && !previousDashKeyIsPressed && time - lastDashTime > dashCooldown);
     }
 
     public void performDash(KeyCode direction) {
@@ -62,55 +57,32 @@ public class PaddleMovement : MonoBehaviour
         else if (direction == moveDown)
             rb.position = new Vector2(rb.position.x, rb.position.y - dashDistance);
 
-        dashPressTime = 0;
-        dashReleaseTime = 0;
-        
+        lastDashTime = time;
     }
 
     public void FixedUpdate() {
         float movement = 0f;
         time += Time.deltaTime;
-        // Debug.Log($"{time} {time - dashPressTime} {time - dashReleaseTime}");
 
-        if (time - dashPressTime > 0.15f) {
-            resetDashConditions();
-        }
+        previousDashKeyIsPressed = dashKeyIsPressed;
+        dashKeyIsPressed = Input.GetKey(KeyCode.Space);
+        // Debug.Log($"{time} {time - lastDashTime} {time - dashReleaseTime}");
 
         if (Input.GetKey(moveUp)) {
             movement = 1f;
-
-            if (dashDirection == moveDown)
-                resetDashConditions();
-            
-            if (time - dashPressTime < 0.15f && time - dashReleaseTime < 0.08f)
-                performDash(moveUp);
-
-            if (dashPressTime == 0) {
-                dashPressTime = time;
-                dashDirection = moveUp;
-            }
-
+            lastDirection = moveUp;
         }
         else if (Input.GetKey(moveDown)) {
             movement = -1f;
-
-            if (dashDirection == moveUp)
-                resetDashConditions();
-
-            if (time - dashPressTime < 0.15f && time - dashReleaseTime < 0.08f)
-                performDash(moveDown);
-
-            if (dashPressTime == 0) {
-                dashPressTime = time;
-                dashDirection = moveDown;
-            }
+            lastDirection = moveDown;
         }
         else {
             movement = 0f;
-            if (dashPressTime != 0)
-                dashReleaseTime = time;
         }
 
+        if (dashConditionsAreMet())
+            performDash(lastDirection);
+    
         float tempSpeed = speed;
         if ((isPlayer1 && Input.GetKey(KeyCode.LeftShift)) || (!isPlayer1 && Input.GetKey(KeyCode.RightShift)))
             tempSpeed = maxSpeed;
