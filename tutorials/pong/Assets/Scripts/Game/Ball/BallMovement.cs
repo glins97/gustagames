@@ -47,8 +47,6 @@ public class BallMovement : MonoBehaviour
     public void Start() {
         rb = GetComponent<Rigidbody2D>();
         paddleTick = GetComponent<AudioSource>();
-        Reset();
-        Release();
     }
     
     public void Reset() {
