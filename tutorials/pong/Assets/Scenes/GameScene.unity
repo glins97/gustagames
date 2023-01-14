@@ -5222,7 +5222,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &116735392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5611,6 +5611,18 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1671168083}
+    - target: {fileID: 2664536356736434177, guid: 8ebb7d7b677baef4c9165badd382a315, type: 3}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664536356736434177, guid: 8ebb7d7b677baef4c9165badd382a315, type: 3}
+      propertyPath: dashCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664536356736434177, guid: 8ebb7d7b677baef4c9165badd382a315, type: 3}
+      propertyPath: dashDistance
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2664536356736434178, guid: 8ebb7d7b677baef4c9165badd382a315, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5724,6 +5736,18 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1922136360}
+    - target: {fileID: 3964498119555653444, guid: 079afe0dc4803a24da15fe2196b416d9, type: 3}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964498119555653444, guid: 079afe0dc4803a24da15fe2196b416d9, type: 3}
+      propertyPath: dashCooldown
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964498119555653444, guid: 079afe0dc4803a24da15fe2196b416d9, type: 3}
+      propertyPath: dashDistance
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 079afe0dc4803a24da15fe2196b416d9, type: 3}
 --- !u!1 &499942099
